@@ -72,7 +72,19 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun digitNumber(n: Int): Int = TODO()
+fun digitNumber(n: Int): Int {
+    var number = n
+    var count = 0
+    do {
+        if (n in 0..9) {
+            count++
+            break
+        }
+        count++
+        number /= 10
+    } while (number > 0)
+    return count
+}
 
 /**
  * Простая (2 балла)
@@ -112,7 +124,7 @@ fun maxDivisor(n: Int): Int = TODO()
  * Написать функцию, которая находит, сколько шагов требуется для
  * этого для какого-либо начального X > 0.
  */
-fun collatzSteps(x: Int): Int = TODO()
+fun collatzSteps(x: Int): Int = TODO() // if ((x % 2) == 0) collatzSteps (x / 2)  else collatzSteps (x * 3 + 1)
 
 /**
  * Средняя (3 балла)
@@ -120,8 +132,19 @@ fun collatzSteps(x: Int): Int = TODO()
  * Для заданных чисел m и n найти наименьшее общее кратное, то есть,
  * минимальное число k, которое делится и на m и на n без остатка
  */
-fun lcm(m: Int, n: Int): Int = TODO()
+fun lcm(m: Int, n: Int): Int = TODO() /*{
+    var nokM = 2
+    var nokD = 2
 
+    do {
+        if ((m % nokM) == 0) {
+            if ((n % nokD) == 0) break else nokD++
+        } else nokM++
+    } while (nokD != nokM)
+
+    return nokD
+}
+*/
 /**
  * Средняя (3 балла)
  *
