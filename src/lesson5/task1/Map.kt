@@ -96,7 +96,42 @@ fun buildWordSet(text: List<String>): MutableSet<String> {
  *   buildGrades(mapOf("Марат" to 3, "Семён" to 5, "Михаил" to 5))
  *     -> mapOf(5 to listOf("Семён", "Михаил"), 3 to listOf("Марат"))
  */
-fun buildGrades(grades: Map<String, Int>): Map<Int, List<String>> = TODO()
+fun buildGrades(grades: Map<String, Int>): Map<Int, List<String>> {
+    val excellent = mutableListOf<String>()
+    val good = mutableListOf<String>()
+    val bad = mutableListOf<String>()
+    val fall = mutableListOf<String>()
+    val res = mutableMapOf<Int, List<String>>()
+
+    if (grades.isEmpty()) return res else
+        for ((name, ball) in grades) {
+            when (ball) {
+                5 -> excellent.add(name)
+                4 -> good.add(name)
+                3 -> bad.add(name)
+                2 -> fall.add(name)
+            }
+        }
+
+    if (excellent.isNotEmpty()) {
+        excellent.toList()
+        res.put(5, excellent)
+    }
+    if (good.isNotEmpty()) {
+        good.toList()
+        res.put(4, good)
+    }
+    if (bad.isNotEmpty()) {
+        bad.toList()
+        res.put(3, bad)
+    }
+    if (fall.isNotEmpty()) {
+        fall.toList()
+        res.put(2, fall)
+    }
+
+    return res
+}
 
 /**
  * Простая (2 балла)
